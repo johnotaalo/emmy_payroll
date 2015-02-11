@@ -3,11 +3,13 @@
 <head>
 	<title>Payroll Authentication</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap/cosmo.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/ionicons/css/ionicons.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/animate.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/custom/login.css">
 </head>
 <body>
+	<div class = "overlay"></div>
 	<div class = "login-container col-md-3">
 		<div class = "login-panel">
 			<div class = "outer_border">
@@ -18,19 +20,18 @@
 			</div>
 			<div class = "login-body animated fadeInLeft">
 				<form method = "POST" name = "login-form" action = "<?php echo base_url();?>user/authenticate" id = "login-form">
-					<input type = "text" name = "username" placeholder = "Username" id = "username"/>
-					<input type = "password" name = "password" placeholder = "Password" id = "password" required/>
-
-					<button class = "login-button" id = "sign-in">Sign In</button>
+					<div class = "input"><input type = "text" name = "username" placeholder = "Username" id = "username" required/><span class = "input-icon" id = "sign-user"><i class = "ion ion-person"></i></span></div>
+					<div class = "input"><input type = "password" name = "password" placeholder = "Password" id = "password" required/><span class = "input-icon"><i class = "ion ion-lock-combination"></i></span></div>
+					<button class = "login-button" id = "sign-in"><i class = "ion ion-log-in"></i> Sign In</button>
 				</form>
 
-				<small>Problem signing in? <a href = "#">Get Help here</a></small>
+				<small>Problem signing in? <a href = "#" id = "help">Get Help here</a></small>
 			</div>
 			<div class = "login-footer"></div>
 		</div>
 	</div>
 
-	<div class = "footer animated tada">
+	<div class = "footer animated pulse">
 		&copy; Chrizota Systems <?php echo date('Y');?>
 	</div>
 
