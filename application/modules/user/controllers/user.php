@@ -7,6 +7,11 @@ class User extends MY_Controller
 		parent::__construct();
 	}
 
+	function index()
+	{
+		$this->login();
+	}
+	
 	function login()
 	{
 		$this->load->view('user/login_v');

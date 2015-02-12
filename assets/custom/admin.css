@@ -1,0 +1,234 @@
+html
+{
+	padding: 0;
+	margin: 0;
+}
+body
+{
+	font-family: 'Segoe UI', Tahoma, sans-serif !important;
+	padding: 0;
+	margin: 0;
+}
+
+.heading
+{
+	background-color: rgb(41, 144, 81);
+	color: #fff;
+	width: 100%;
+	height: 60px;
+}
+
+.heading div
+{
+	float: left;
+}
+.heading h3,.heading p
+{
+	margin: 0;
+}
+
+.heading .system-name
+{
+
+	width: 15%;
+}
+
+.heading .horizontal-menu
+{
+	width: 65%;
+}
+
+.heading .horizontal-menu ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.heading .horizontal-menu ul li
+{
+	display: inline;
+	float: left;
+	width: 8%;
+	padding: 1px;
+}
+
+.heading .horizontal-menu ul li:hover
+{
+	background-color: rgb(53, 132, 85);
+}
+
+.heading .horizontal-menu ul li a
+{
+	display: block;
+	color: #fff;
+	text-decoration: none;
+
+	/*width: 20px;*/
+}
+span.menu-icon
+{
+	font-size: 170%;
+	margin-bottom: 0;
+
+}
+
+span.menu-icon
+{
+	display: block;
+}
+
+span.menu-text
+{
+	font-size: 70%;
+	padding: 0;
+	margin: 0;
+}
+
+.heading .user
+{
+	background-color: rgb(53, 132, 85);
+	width: 20%;
+	height: inherit;
+}
+
+.heading .user .user-container
+{
+	margin: 5px;
+}
+.heading .user .user-container .user-image
+{
+	background-color: #f3f3f3;
+	width: 40px;
+	height: 40px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.heading .user .user-container .user-details
+{
+	margin-left: 5px;
+	font-size: 79%;
+}
+
+.heading .user .user-container .user-details .user-time
+{
+	margin-right: 5px;
+}
+
+li.active
+{
+	background-color: rgb(53, 132, 85);
+}
+
+div.admin-bread-crump
+{
+	clear: both;
+	position: relative;
+	height: 30px;
+	padding: 1px;
+	color: rgb(103, 106, 108);
+	background-color: #f5f5f5;
+}
+
+div.admin-bread-crump div.left-crump
+{
+	width: 15%;
+	float: left;
+	font-size: 80%;
+	line-height: 2;
+}
+div.admin-bread-crump div.right-crump
+{
+	position: absoulte;
+	left: 15%;
+	width: 85%;
+	float: left;
+	height: inherit;
+	font-size: 80%;
+	line-height: 2;
+}
+
+div.admin-bread-crump div.right-crump div.crump-details
+{
+	background-color: #888;
+}
+
+div.content-wrapper
+{
+	clear: both;
+}
+
+div.content-wrapper div.sidebar
+{
+	background-color: #f7f7f7;
+	font-size: 80%;
+	width: 15%;
+	float: left;
+}
+
+div.content-wrapper div.content-area
+{
+	width: 85%;
+}
+div.sidebar ul
+{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+div.sidebar ul div.list-group
+{
+	background-color: rgb(41, 144, 81);
+	color: #fff;
+	padding: 8px;
+}
+
+div.sidebar ul li
+{
+	display: block;
+	padding: 8px;
+	border-bottom: 1px solid #f2f2f2;
+}
+
+div.sidebar ul li a
+{
+	text-decoration: none;
+	color: #585858;
+	font-size: 90%;
+	font-weight: bold;
+	display: block;
+	/*background-color: red;*/
+}
+
+div.sidebar ul li:hover
+{
+	background-color: #f1f1f1;
+}
+
+.icon
+{
+	font-size: 150%;
+	padding-right: 7px;
+}
+
+.menu-badge
+{
+	background-color: #1ab394;
+	float: right;
+	padding: 3px 8px;
+	color: #f2f2f2;
+	font-size: 80%;
+	border-radius: 2px;
+}
+
+.widget
+{
+	width: 27%;
+	margin: 10px;
+	float: left;
+	padding: 1px;
+	background-color: #111;
+}
