@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bower_components/Hover/css/hover.css">
 
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/scripts/jquery.js"></script>
+	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/bootstrap/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		base_url = '<?php echo base_url(); ?>';
 	</script>
@@ -24,6 +25,13 @@
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/datatables/media/js/dataTables.responsive.js"></script>
 </head>
 <body>
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+		</div>
 	<div class = "wrapper row">
 		<div class = "heading row" style = "">
 			<div class = "system-name col-md-2" style = "">
@@ -75,13 +83,14 @@
 			</div>
 		</div>
 	</div>
+
+	<?php $this->load->view('modal/modals');?>
 	<!-- scripts -->
 	<!--<script type="text/javascript" src = "<?php echo base_url(); ?>assets/semantic-ui/dist/semantic.min.js"></script>-->
 	<script type="text/javascript">
 		$(document).ready(function(){
-
+			$('#loader-wrapper').hide();
 		});
-
 		function renderTime()
 		{
 			var currentTime = new Date();

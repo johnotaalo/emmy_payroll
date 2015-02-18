@@ -16,4 +16,7 @@ class User extends MY_Controller
 	{
 		$this->load->view('user/login_v');
 	}
+	function getdata($type)
+	{
+	}
 }

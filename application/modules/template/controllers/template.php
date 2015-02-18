@@ -11,4 +11,9 @@ class Template extends MY_Controller
 	{
 		$this->load->view('admin_template', $data);
 	}
+
+	function test_modal()
+	{
+		$this->load->view('modal/modals');
+	}
 }
