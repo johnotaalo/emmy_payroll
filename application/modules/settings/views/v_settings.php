@@ -174,6 +174,29 @@
 		position_id = $(that).attr('data-id');
 		to_do = $(that).attr('data-to');
 
-		
+		process_ajax('positions/update/activation/'+position_id+'/'+to_do, function(data){
+			obj = jQuery.parseJSON(data);
+			if (obj.type === 'success')
+			{
+				var src = $('img#image').attr('src');
+				$.gritter.add({
+					// (string | mandatory) the heading of the notification
+					title: 'Success',
+					// (string | mandatory) the text inside the notification
+					text: obj.message,
+					// (string | optional) the image to display on the left
+					image: src,
+					// (bool | optional) if you want it to fade out on its own or just sit there
+					sticky: true,
+					// (int | optional) the time you want it to be alive for before fading out
+					time: ''
+				});
+				var active_button = $('.button-clone-active');
+				var updated_link = $('a[data-id='+position_id+']');
+				loadpage(active_button);
+				getpositiondetails(updated_link);
+			}
+		});
+
 	}
 </script>

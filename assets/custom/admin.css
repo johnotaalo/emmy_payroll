@@ -673,3 +673,61 @@ table tbody
 	padding: 5px;
 	background-color: #fff;
 }
+
+.icon-circle
+{
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	border-radius: 100%;
+	/*border: 3px solid #111;*/
+	background-color: #2c3e50;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.icon-circle i
+{
+	line-height: 40px;
+	font-size: 110%;
+}
+
+.icon-success
+{
+	background-color: #2980b9;
+	border: 3px solid #ecf0f1;
+}
+.icon-success:hover
+{
+	background-color: #3498db;
+}
+
+.gritter-top, .gritter-bottom
+{
+	background: none !important;
+	height: 0 !important;
+}
+.gritter-item
+{
+	background: #2ecc71 !important;
+	color: #fff !important;
+	padding: 0 !important;
+}
+
+.gritter-image {
+	width: 70px !important;
+	height: 70px !important;
+	float: left !important;
+}
+
+.gritter-title
+{
+	text-shadow: none !important;
+	font-size: 120% !important;
+	padding: 5px !important; 
+}
+
+.gritter-with-image p
+{
+	font-size: 100% !important;
+}

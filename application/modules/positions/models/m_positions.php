@@ -41,4 +41,17 @@ class M_positions extends MY_Model
 
 		return $result;
 	}
+
+	function activation($position_id, $data)
+	{
+		$query = $this->db->query('UPDATE positions SET is_active = ' . $data . ' WHERE position_id = ' . $position_id);
+
+		if ($query) {
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
 }

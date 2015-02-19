@@ -95,6 +95,46 @@ class Positions extends MY_Controller
 		}
 	}
 
+	function update($type, $position_id, $to_do = NULL)
+	{
+		$return_data = $data_message = $action = '';
+		$message = array();
+		switch ($type) {
+			case 'activation':
+				switch ($to_do) {
+					case 'activate':
+						$data = 1;
+						$action = 'Activated';
+						break;
+					case 'deactivate':
+						$data = 0;
+						$action = 'Deactivated';
+						break;
+					default:
+						# code...
+						break;
+				}
+
+				$return_data = $this->m_positions->activation($position_id, $data);
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
+		if ($return_data) {
+			$message['type'] = 'success';
+			$message['message'] = 'Successfully ' . $action . ' Position';
+		}
+		else
+		{
+			$message['type'] = 'error';
+			$message['message'] = 'Position could not be' . $action . '. Try again later';
+		}
+
+		echo json_encode($message);
+	}
 	/*ajax functions to return data*/
 	function ajax_addposition()
 	{

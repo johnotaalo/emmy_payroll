@@ -10,6 +10,7 @@
 	<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/animate.css"> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/custom/admin.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bower_components/Hover/css/hover.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/plugins/gritter/css/jquery.gritter.css">
 
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/scripts/jquery.js"></script>
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/bootstrap/bootstrap.min.js"></script>
@@ -24,6 +25,8 @@
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/datatables/media/js/dataTables.bootstrap.js"></script>
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/datatables/media/js/dataTables.responsive.js"></script>
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/bower_components/moment/min/moment.min.js"></script>
+	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/custom/custom.js"></script>
+	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/plugins/gritter/js/jquery.gritter.min.js"></script>
 	<script type="text/javascript">
 		var now = moment();
 	</script>

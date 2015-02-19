@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 });
 
-function process_ajax(data_url)
+function process_ajax(data_url, handledata)
 {
 	$.ajax({
 		url: base_url + data_url,
@@ -11,7 +11,7 @@ function process_ajax(data_url)
 		}
 	})
 	.done(function( data ) {
-		obj = jQuery.parseJSON(data);
+		handledata(data);
 		$('#loader-wrapper').hide();
 	});
 }
