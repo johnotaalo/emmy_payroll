@@ -28,7 +28,7 @@ class M_positions extends MY_Model
 	}
 	function getpositions()
 	{
-		$query = $this->db->query("SELECT * FROM positions");
+		$query = $this->db->query("SELECT * FROM positions WHERE is_deleted = 0");
 		$result = $query->result_array();
 
 		return $result;
@@ -45,6 +45,19 @@ class M_positions extends MY_Model
 	function activation($position_id, $data)
 	{
 		$query = $this->db->query('UPDATE positions SET is_active = ' . $data . ' WHERE position_id = ' . $position_id);
+
+		if ($query) {
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
+	function delete($position_id)
+	{
+		$query = $this->db->query('UPDATE positions SET is_deleted = 1 WHERE position_id = ' . $position_id);
 
 		if ($query) {
 			return TRUE;

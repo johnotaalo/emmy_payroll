@@ -1,0 +1,1 @@
+ALTER TABLE `positions` ADD `is_deleted` INT NOT NULL DEFAULT '0' ;

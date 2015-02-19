@@ -16,14 +16,17 @@
 	</center>
 
 	<div class = "col-md-12">
-		<div class = "row">
-			<center>
-				<div class = "icon-circle icon-success"><i class = "fa fa-pencil fa-1x"></i></div>
-				<div class = "icon-circle icon-danger"><i class = "fa fa-trash fa-1x"></i></div>
-			</center>
-		</div>
-	</div>
-	<div class = "col-md-12">
+		<center><div class="row">
+			<span class="fa-stack fa-lg icon-wrapper" id = "action-edit" onclick = "">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-pencil fa-stack-1x fa-inverse icon-action"></i>
+			</span>
+
+			<span class="fa-stack fa-lg icon-wrapper" id = "action-delete" onclick = "deleteposition(this);">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-trash fa-stack-1x fa-inverse icon-action"></i>
+			</span>
+		</div></center>
 		<div class="row">
 			<div class = "col-md-5">Position Name: </div>
 			<div class = "col-md-7" id = "position_name"></div>

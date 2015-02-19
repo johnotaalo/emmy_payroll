@@ -97,7 +97,7 @@ class Positions extends MY_Controller
 
 	function update($type, $position_id, $to_do = NULL)
 	{
-		$return_data = $data_message = $action = '';
+		$return_data = $data_message = $action = $extra_message = '';
 		$message = array();
 		switch ($type) {
 			case 'activation':
@@ -117,7 +117,11 @@ class Positions extends MY_Controller
 
 				$return_data = $this->m_positions->activation($position_id, $data);
 				break;
-			
+			case 'delete':
+				$return_data = $this->m_positions->delete($position_id);
+				$action = 'Deleted';
+				$extra_message = 'You can undo this by going to <a href = "#">Trash</a>';
+				break;
 			default:
 				# code...
 				break;
@@ -132,7 +136,7 @@ class Positions extends MY_Controller
 			$message['type'] = 'error';
 			$message['message'] = 'Position could not be' . $action . '. Try again later';
 		}
-
+		$message['extra'] = $extra_message;
 		echo json_encode($message);
 	}
 	/*ajax functions to return data*/

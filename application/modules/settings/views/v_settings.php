@@ -3,7 +3,9 @@
 		$('#settings').addClass('active');
 	});
 </script> 
-
+<div class = "col-md-12 message-bottom">
+	x
+</div>
 <div class = "row">
 	<div class = "col-md-12 buttons">
 		<div class = "col-md-3">
@@ -62,6 +64,8 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$('.message-bottom').hide();
+		$(".message-bottom").animate({ scrollTop: $('.message-bottom')[0].scrollHeight}, 1000);
 		$('.button-clone').click(function(){
 			loadpage(this);
 		});
@@ -147,6 +151,8 @@
 				$('#image').attr('src', obj.position_cover);
 				$('#position_name').text(obj.position_name);
 				$('#position_description').text(obj.position_description);
+				$('#action-edit').attr('data-edit-id', obj.position_id);
+				$('#action-delete').attr('data-delete-id', obj.position_id);
 				// var date = new Date();
 				var formated = moment(obj.date_created, "YYYY-MM-DD HH:mm");
 				var duration = moment(obj.date_created).fromNow();
@@ -179,18 +185,7 @@
 			if (obj.type === 'success')
 			{
 				var src = $('img#image').attr('src');
-				$.gritter.add({
-					// (string | mandatory) the heading of the notification
-					title: 'Success',
-					// (string | mandatory) the text inside the notification
-					text: obj.message,
-					// (string | optional) the image to display on the left
-					image: src,
-					// (bool | optional) if you want it to fade out on its own or just sit there
-					sticky: true,
-					// (int | optional) the time you want it to be alive for before fading out
-					time: ''
-				});
+				show_gritter_image('Success', obj.message, src);
 				var active_button = $('.button-clone-active');
 				var updated_link = $('a[data-id='+position_id+']');
 				loadpage(active_button);
@@ -198,5 +193,37 @@
 			}
 		});
 
+	}
+
+	function show_gritter_image(title, message, image)
+	{
+		$.gritter.add({
+			// (string | mandatory) the heading of the notification
+			title: title,
+			// (string | mandatory) the text inside the notification
+			text: message,
+			// (string | optional) the image to display on the left
+			image: image,
+			// (bool | optional) if you want it to fade out on its own or just sit there
+			sticky: true,
+			// (int | optional) the time you want it to be alive for before fading out
+			time: ''
+		});
+	}
+	function deleteposition(that)
+	{
+		data_delete = $(that).attr('data-delete-id');
+		process_ajax('positions/update/delete/'+position_id, function(data){
+			obj = jQuery.parseJSON(data);
+			if (obj.type === 'success'){
+				var src = $('img#image').attr('src');
+				show_gritter_image('Success', obj.message, src);
+				$('.message-bottom').html(obj.extra);
+				$('.message-bottom').show();
+				setTimeout( function(){$('.message-bottom').hide('fadeOut');} , 4000);
+				var active_button = $('.button-clone-active');
+				loadpage(active_button);
+			}
+		});
 	}
 </script>
