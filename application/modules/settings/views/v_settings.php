@@ -147,10 +147,33 @@
 				$('#image').attr('src', obj.position_cover);
 				$('#position_name').text(obj.position_name);
 				$('#position_description').text(obj.position_description);
-				var date = new Date(obj.date_created);
-				alert(date);
+				// var date = new Date();
+				var formated = moment(obj.date_created, "YYYY-MM-DD HH:mm");
+				var duration = moment(obj.date_created).fromNow();
+				$('#position_date').text(duration);
+				$('#activation').attr('data-id', obj.position_id);
+				if (obj.is_active === '1')
+				{
+					$('#activation').addClass('btn btn-success');
+					$('#activation').text('Active');
+					$('#activation').attr('data-to', 'deactivate');
+				}
+				else
+				{
+					$('#activation').addClass('btn btn-danger');
+					$('#activation').text('Deactivated');
+					$('#activation').attr('data-to', 'activate');
+				}
 			});
 			$('#loader-wrapper').hide();
 		});
+	}
+
+	function activation(that)
+	{
+		position_id = $(that).attr('data-id');
+		to_do = $(that).attr('data-to');
+
+		
 	}
 </script>

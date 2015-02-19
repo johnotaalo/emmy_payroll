@@ -667,3 +667,9 @@ table tbody
 	height: 200px;
 	width: 200px;
 }
+
+.image-holder
+{
+	padding: 5px;
+	background-color: #fff;
+}

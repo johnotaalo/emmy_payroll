@@ -23,6 +23,10 @@
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/datatables/media/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/datatables/media/js/dataTables.bootstrap.js"></script>
 	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/datatables/media/js/dataTables.responsive.js"></script>
+	<script type="text/javascript" src = "<?php echo base_url(); ?>assets/bower_components/moment/min/moment.min.js"></script>
+	<script type="text/javascript">
+		var now = moment();
+	</script>
 </head>
 <body>
 		<div id="loader-wrapper">
