@@ -1,6 +1,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#dashboard').addClass('active');
+			$('#dashboard-sidebar').addClass('sidebar-active');
 		});
 	</script>
 	<div class = "notification-bar row">

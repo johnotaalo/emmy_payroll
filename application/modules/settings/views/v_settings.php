@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<div class = "col-md-3">
-			<div class = "button-clone" data-content = "settings_branches">
+			<div class = "button-clone" data-content = "branches_branches" data-type = "branches_table">
 				<div class = "row">
 					<div class = "col-xs-5 clone-icon">
 						<i class = "fa fa-sitemap fa-5x"></i>
@@ -78,7 +78,8 @@
 	function buttonclick(that)
 	{
 		$('#dynamic-heading').text($(that).attr('data-title'));
-		$.get(base_url + 'settings/loadview/positions_positionadd', function(data){
+		content = $(that).attr('data-content');
+		$.get(base_url + 'settings/loadview/'+content, function(data){
 			$('#modal-form-content').html(data);
 			$('#action-button').removeAttr('disabled');
 			$('#action-button').text($(that).attr('data-title'));
@@ -105,6 +106,7 @@
 			},
 			success:function(data, textStatus, jqXHR) 
 			{
+				// console.log(data);
 				obj = jQuery.parseJSON(data);
 				if (obj.type == 'success'){
 					$('#action-button').removeAttr('disabled');
@@ -117,7 +119,7 @@
 			},
 			error: function(jqXHR, textStatus, errorThrown) 
 			{
-			//if fails      
+
 			}
 		});
 	}
@@ -153,6 +155,7 @@
 				$('#position_description').text(obj.position_description);
 				$('#action-edit').attr('data-edit-id', obj.position_id);
 				$('#action-delete').attr('data-delete-id', obj.position_id);
+				$('#action-edit').attr('data-edit-name', obj.position_name);
 				// var date = new Date();
 				var formated = moment(obj.date_created, "YYYY-MM-DD HH:mm");
 				var duration = moment(obj.date_created).fromNow();
@@ -213,7 +216,7 @@
 	function deleteposition(that)
 	{
 		data_delete = $(that).attr('data-delete-id');
-		process_ajax('positions/update/delete/'+position_id, function(data){
+		process_ajax('positions/update/delete/'+data_delete, function(data){
 			obj = jQuery.parseJSON(data);
 			if (obj.type === 'success'){
 				var src = $('img#image').attr('src');
@@ -224,6 +227,60 @@
 				var active_button = $('.button-clone-active');
 				loadpage(active_button);
 			}
+		});
+	}
+
+	function load_edit_modal(that)
+	{
+		data_edit = $(that).attr('data-edit-id');
+		data_name = $(that).attr('data-edit-name');
+		process_ajax('settings/loadview/positions_positionadd', function(data){
+			$('#modal-form-content').html(data);
+			$('#action-button').removeAttr('disabled');
+			$('#action-button').text('Edit Position');
+			$('#dynamic-heading').text('Editting: '+data_name);
+			$('#form-action').val(base_url+'positions/update/update/'+data_edit);
+			process_ajax('positions/get_position_by_id/ajax/'+data_edit, function(data){
+				obj = jQuery.parseJSON(data);
+				$('#pos_name').val(obj.position_name);
+				$('#pos_description').val(obj.position_description);
+			});
+			$('#form-modal').modal('show');
+		});
+	}
+
+	/*Branch settings*/
+	function editbranch(that)
+	{
+		branch_id = $(that).attr('edit-id');
+		buttonclick(that);
+		// console.log($('#form-action'));
+		process_ajax('branches/get_branch_by_id/ajax/'+branch_id, function(data){
+			$('#form-action').val(base_url+'branches/update/update/'+branch_id);
+			obj = jQuery.parseJSON(data);
+			$('#branch_name').val(obj.branch_name);
+			$('#branch_location').val(obj.branch_location);
+		});
+	}
+
+	function delete_branch(that)
+	{
+		branch_id = $(that).attr('delete-id');
+		$('#dialog-modal').modal('show');
+		process_ajax('branches/get_branch_by_id/ajax/'+branch_id, function(data){
+			obj = jQuery.parseJSON(data);
+			$('#dialog-message-content').text('Are you sure you want to delete ' + obj.branch_name + ' from branches');
+		});
+
+		$('#confirm').click(function(){
+			$('#dialog-modal').modal('hide');
+			process_ajax('branches/update/delete/'+branch_id, function(data){
+				obj = jQuery.parseJSON(data);
+				$('#success-modal').modal('show');
+				$('#success-message-content').text(obj.message);
+				var active_button = $('.button-clone-active');
+				loadpage(active_button);
+			});
 		});
 	}
 </script>

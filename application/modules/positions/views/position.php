@@ -2,7 +2,7 @@
 	<div class = "widget-heading">
 		<div class = "row">
 			<h4 class = "pull-left"><i class = "ion ion-ios-person"></i> Positions <small>Manage positions in this organization</small></h4>
-			<a href = "#" id = 'add_position' class = "button pull-right" onclick="buttonclick(this);" data-title = 'Add a Position' data-content = "position"><i class = "ion ion-person-add"></i> Add a Position</a>
+			<a href = "#" id = 'add_position' class = "button pull-right" onclick="buttonclick(this);" data-content = 'positions_positionadd' data-title = 'Add a Position' data-content = "position"><i class = "ion ion-person-add"></i> Add a Position</a>
 		</div>
 	</div>
 	<div class = "widget-body">

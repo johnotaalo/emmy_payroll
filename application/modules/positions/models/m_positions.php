@@ -67,4 +67,24 @@ class M_positions extends MY_Model
 			return FALSE;
 		}
 	}
+
+	function update($position_id)
+	{
+		$update_data = array();
+		foreach ($this->input->post() as $key => $value) {
+			if ($value != NULL && $key != 'action') {
+				$update_data[$key] = $value;
+			}
+		}
+		$this->db->where('position_id', $position_id);
+		$query = $this->db->update('positions', $update_data);
+
+		if ($query) {
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
 }

@@ -49,7 +49,7 @@
 					<li id = "dashboard"><center><a href = "<?php echo base_url(); ?>dashboard"><span class = 'menu-icon'><i class = "fa fa-th"></i></span><span class = "menu-text">Dashboard</span></a></center></li>
 					<li id = "organization"><center><a href = "#"><span class = 'menu-icon'><i class = "fa fa-building"></i></span><span class = "menu-text">Organization</span></a></center></li>
 					<li id = "branches"><center><a href = "#"><span class = 'menu-icon'><i class = "fa fa-sitemap"></i></span><span class = "menu-text">Branches</span></a></center></li>
-					<li id = "employees"><center><a href = "#"><span class = 'menu-icon'><i class = "ion ion-ios-people"></i></span><span class = "menu-text">Employees</span></a></center></li>
+					<li id = "employees"><center><a href = "<?php echo base_url(); ?>employees/employee"><span class = 'menu-icon'><i class = "ion ion-ios-people"></i></span><span class = "menu-text">Employees</span></a></center></li>
 					<li id = "reports"><center><a href = "#"><span class = 'menu-icon'><i class = "ion ion-stats-bars"></i></span><span class = "menu-text">Reports</span></a></center></li>
 					<li id = "notifications"><center><a href = "#"><span class = 'menu-icon'><i class = "ion ion-ios-bell-outline"></i></span><span class = "menu-text">Notifications</span></a></center></li>
 					<li id = "tools"><center><a href = ""><span class = 'menu-icon'><i class = "ion ion-settings"></i></span><span class = "menu-text">Tools</span></a></center></li>
@@ -75,13 +75,13 @@
 			<div class = "sidebar col-md-2">
 				<ul>
 					<div class = "list-group">Company</div>
-						<li><a href = "#"><span class = "menu icon"><i class = "fa fa-th"></i></span>Dashboard</a></li>
+						<li id = "dashboard-sidebar"><a href = "<?php echo base_url(); ?>dashboard"><span class = "menu icon"><i class = "fa fa-th"></i></span>Dashboard</a></li>
 						<li><a href = "#"><span class = "menu icon"><i class = "ion ion-calendar"></i></span>Birthdays</a></li>
 					<div class = "list-group">Links</div>
-						<li><a href = "#"><span class = "menu icon"><i class = "ion ion-ios-people"></i></span>Employees<span class = "menu-badge">0</span></a></li>
-						<li><a href = "#"><span class = "menu icon"><i class = "fa fa-sitemap"></i></span>Branches<span class = "menu-badge">0</span></a></li>
+						<li id = "employees-sidebar"><a href = "<?php echo base_url(); ?>employees/employee"><span class = "menu icon"><i class = "ion ion-ios-people"></i></span>Employees<span class = "menu-badge"><?php echo $numbers['employees']; ?></span></a></li>
+						<li><a href = "#"><span class = "menu icon"><i class = "fa fa-sitemap"></i></span>Branches<span class = "menu-badge"><?php echo $numbers['branches']; ?></span></a></li>
 						<li><a href = "#"><span class = "menu icon"><i class = "ion ion-calendar"></i></span>Schedules<span class = "menu-badge">0</span></a></li>
-						<li><a href = "#"><span class = "menu icon"><i class = "ion ion-person"></i></span>Positions<span class = "menu-badge">0</span></a></li>
+						<li><a href = "#"><span class = "menu icon"><i class = "ion ion-person"></i></span>Positions<span class = "menu-badge"><?php echo $numbers['positions']; ?></span></a></li>
 						<li><a href = "#"><span class = "menu icon"><i class = "ion ion-log-out"></i></span>Sign Out</a></li>
 				</ul>
 			</div>

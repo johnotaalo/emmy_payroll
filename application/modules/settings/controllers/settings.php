@@ -8,6 +8,7 @@ class Settings extends MY_Controller
 		$this->load->model('m_settings');
 		$this->load->module('positions');
 		$this->load->module('user');
+		$this->load->module('branches');
 	}
 
 	function systemsettings()
@@ -17,23 +18,8 @@ class Settings extends MY_Controller
 		$this->template->call_admin_template($data);
 	}
 
-	function loadview($content_view, $type = NULL)
-	{
-		$content_array = explode('_', $content_view);
-		$content_view = $content_array[0] . '/' . $content_array[1];
-		if ($content_array[0] == 'settings') {
-			$data = $this->getdata($type);
-		}
-		else
-		{
-			$data = $this->$content_array[0]->getdata($type);
-		}
-		
-		// echo "<pre>";print_r($data);die;
-		echo $this->load->view($content_view, $data);
-	}
-
 	function getdata($type)
 	{
+		
 	}
 }

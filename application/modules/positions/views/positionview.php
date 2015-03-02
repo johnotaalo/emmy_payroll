@@ -17,7 +17,7 @@
 
 	<div class = "col-md-12">
 		<center><div class="row">
-			<span class="fa-stack fa-lg icon-wrapper" id = "action-edit" onclick = "">
+			<span class="fa-stack fa-lg icon-wrapper" id = "action-edit" onclick = "load_edit_modal(this);" data-load-view = "positions_positionadd">
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-pencil fa-stack-1x fa-inverse icon-action"></i>
 			</span>

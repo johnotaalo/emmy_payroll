@@ -110,9 +110,6 @@ class Positions extends MY_Controller
 						$data = 0;
 						$action = 'Deactivated';
 						break;
-					default:
-						# code...
-						break;
 				}
 
 				$return_data = $this->m_positions->activation($position_id, $data);
@@ -121,6 +118,11 @@ class Positions extends MY_Controller
 				$return_data = $this->m_positions->delete($position_id);
 				$action = 'Deleted';
 				$extra_message = 'You can undo this by going to <a href = "#">Trash</a>';
+				break;
+
+			case 'update':
+				$return_data = $this->m_positions->update($position_id);
+				$action = 'Updated';
 				break;
 			default:
 				# code...

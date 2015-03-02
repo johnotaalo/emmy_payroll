@@ -1,0 +1,22 @@
+CREATE TABLE `employees` (
+  `employee_id` int(11) NOT NULL AUTO_INCREMENT,
+  `employee_first_name` varchar(255) NOT NULL,
+  `employee_last_name` varchar(255) NOT NULL,
+  `employee_other_names` varchar(255) DEFAULT NULL,
+  `national_id_no` varchar(9) NOT NULL,
+  `passport_no` varchar(15) DEFAULT NULL,
+  `nhif_no` varchar(15) NOT NULL,
+  `nssf_no` varchar(15) NOT NULL,
+  `kra_pin` varchar(15) NOT NULL,
+  `birth_certificate_no` varchar(15) NOT NULL,
+  `birthday` date NOT NULL,
+  `home_address` text NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `alternate_phone_number` varchar(20) DEFAULT NULL,
+  `email_address` text,
+  `landmark` text,
+  `passport_photo` text,
+  `is_active` int(11) NOT NULL DEFAULT '1',
+  `is_deleted` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`employee_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

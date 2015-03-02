@@ -1,0 +1,1 @@
+ALTER TABLE `branches` ADD `is_deleted` INT NOT NULL DEFAULT '0' ;
